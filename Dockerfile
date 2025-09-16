@@ -1,5 +1,9 @@
-FROM eclipse-temurin:17-jdk
-WORKDIR /app
-COPY target/demo-0.0.1-SNAPSHOT.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.jar"]
+# Use Java 21 runtime
+FROM eclipse-temurin:21-jdk
+
+# Copy your jar file
+COPY target/*.jar app.jar
+
+# Run the Spring Boot app
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+
